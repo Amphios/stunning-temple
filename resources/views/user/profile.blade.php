@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Profile</h1>
+    <h1>Profile - Hi</h1>
 
     {{ $user->username }}
     {{ $user->gems }}
