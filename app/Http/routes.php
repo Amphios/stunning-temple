@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('convertSuccess', 'ProfileController@index');
+Route::get('auth/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index']);
+
 Route::post('convertGems', 'ProfileController@convertGems');
 
 //Route::get('/', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
+
 Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -34,8 +36,6 @@ Route::get('u/{username}', 'ProfileController@index');
 //Route::post('articles', 'ArticlesController@store');
 
 Route::resource('articles', 'ArticlesController');
-
-
 
 Route::controllers ([
     'auth' => 'Auth\AuthController',
