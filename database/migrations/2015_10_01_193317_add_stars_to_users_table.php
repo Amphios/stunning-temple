@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddMoneyToUsersTable extends Migration
+class AddStarsToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddMoneyToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->float('money')->default(0);
+            $table->integer('stars')->default(0);
         });
     }
 
@@ -25,7 +25,7 @@ class AddMoneyToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('money');
+            $table->dropColumn('stars');
         });
     }
 }

@@ -8,7 +8,7 @@
 	    {{ $user->username }}
 	    Gems: {{ $user->gems }}
 	    &nbsp; | &nbsp;
-	    £{{ $user->money }}
+	    £{{ number_format($user->money, 2) }}
     </p>
 
     <p>
