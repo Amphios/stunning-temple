@@ -2,10 +2,19 @@
 
 @section('content')
 
-    <h1>Profile - Hi</h1>
+    <h1>Profile</h1>
 
     {{ $user->username }}
-    {{ $user->gems }}
+    Gems: {{ $user->gems }}
+    Pounds: {{ $user->money }}
+
+    <!--
+    <div class="container" style="background-color: lightgrey;">
+		<div class="row">
+			<div class="col-md-12">.col-md-8</div>
+		</div>
+	</div>
+	-->
 
     @include ('errors.list')
 

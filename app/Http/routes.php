@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
+//Route::get('/', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
+Route::get('/', 'HomeController@index');
 
-Route::get('home', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
+Route::get('home', 'HomeController@index');
 
 Route::get('logout', function(){
     Auth::logout();
