@@ -6,9 +6,12 @@
 
     <p>
 	    {{ $user->username }}
+        &nbsp; | &nbsp;
 	    Gems: {{ $user->gems }}
 	    &nbsp; | &nbsp;
 	    £{{ number_format($user->money, 2) }}
+        &nbsp; | &nbsp;
+        Stars: {{$user->stars }}
     </p>
 
     <p>

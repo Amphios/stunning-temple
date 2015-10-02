@@ -37,7 +37,7 @@ class AdminController extends Controller
         $user->gems = $user->gems + $amount;
         $user->save();
 
-        return Redirect::back()->with('addGemsSuccessMessage','You successfully added ' . $amount . ' Gems to ' . $username . '!');
+        return Redirect::back()->with('addGemsSuccessMessage','You successfully added ' . number_format($amount, 2) . ' Gems to ' . $username . '!');
     }
 
     public function addMoney(addMoneyRequest $request)
