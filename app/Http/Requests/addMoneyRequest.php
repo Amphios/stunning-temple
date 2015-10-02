@@ -13,7 +13,7 @@ class addMoneyRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class addMoneyRequest extends Request
     public function rules()
     {
         return [
-            //
+            'addMoneyUsername' => 'required',
+            'addMoneyAmount' => 'required',
         ];
     }
 }

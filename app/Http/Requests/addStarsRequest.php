@@ -13,7 +13,7 @@ class addStarsRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class addStarsRequest extends Request
     public function rules()
     {
         return [
-            //
+            'addStarsUsername' => 'required',
+            'addStarsAmount' => 'required|integer',
         ];
     }
 }

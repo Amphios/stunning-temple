@@ -9,7 +9,7 @@
     <h3 class="panel-title">Add Gems to a user</h3>
     </div>
     <div class="panel-body">
-        {!! Form::open(['url' => 'convertGems']) !!}
+        {!! Form::open(['url' => 'addGems']) !!}
 
             <div class="form-group">
                 {!! Form::label('addGemsUsername', 'Username') !!}
@@ -27,12 +27,14 @@
     </div>
 </div>
 
+{{ Session::get('addGemsSuccessMessage') }}
+
 <div class="panel panel-default">
     <div class="panel-heading">
     <h3 class="panel-title">Add Money to a user</h3>
     </div>
     <div class="panel-body">
-        {!! Form::open(['url' => 'convertGems']) !!}
+        {!! Form::open(['url' => 'addMoney']) !!}
 
             <div class="form-group">
                 {!! Form::label('addMoneyUsername', 'Username:') !!}
@@ -50,12 +52,14 @@
     </div>
 </div>
 
+{{ Session::get('addMoneySuccessMessage') }}
+
 <div class="panel panel-default">
     <div class="panel-heading">
     <h3 class="panel-title">Add Stars to a user</h3>
     </div>
     <div class="panel-body">
-        {!! Form::open(['url' => 'convertGems']) !!}
+        {!! Form::open(['url' => 'addStars']) !!}
 
             <div class="form-group">
                 {!! Form::label('addStarsUsername', 'Username:') !!}
@@ -73,6 +77,7 @@
     </div>
 </div>
 
+{{ Session::get('addStarsSuccessMessage') }}
 
 
 @endsection

@@ -13,6 +13,10 @@
 
 Route::get('auth/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index']);
 
+Route::post('addGems', ['middleware' => 'auth', 'uses' => 'AdminController@addGems']);
+Route::post('addMoney', ['middleware' => 'auth', 'uses' => 'AdminController@addMoney']);
+Route::post('addStars', ['middleware' => 'auth', 'uses' => 'AdminController@addStars']);
+
 Route::post('convertGems', 'ProfileController@convertGems');
 
 //Route::get('/', ['middleware' => 'auth', 'uses' => 'HomeController@index']);
