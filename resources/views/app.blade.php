@@ -57,7 +57,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->username }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/auth/settings">Settings</a></li>
+                                <li><a href="/auth/admin">Admin Dashboard</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/logout">Logout</a></li>
                             </ul>
