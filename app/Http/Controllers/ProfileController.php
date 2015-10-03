@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transactions;
 use App\User;
 use App\Http\Requests;
 use App\Http\Requests\convertFormRequest;
@@ -36,6 +37,18 @@ class ProfileController extends Controller
 			$user->gems = $user->gems - $gemsAmount;
 			$user->money = $user->money + $converted;
 			$user->save();
+
+            // Create transaction record
+            $transaction = new Transactions;
+
+            $transaction->user_id = $id;
+            $transaction->username = $user->username;
+            $transaction->status = 'CONVERT';
+            $transaction->amount = $gemsAmount;
+            $transaction->value = 'GEMS';
+            $transaction->result = $converted;
+            $transaction->result_value = 'POUNDS';
+            $transaction->save();
 
 			return Redirect::back()->with('convertSuccessMessage','You successfully converted ' . $gemsAmount . ' Gems to £' . $converted . '!');
 

@@ -173,7 +173,7 @@ transition: all 0.4s ease 0s;
 }
 
 .content_bar .line-3 {
-    color: #8e9a98;
+    color: #3598dc;
     font-size: 12pt;
 }
 
@@ -222,6 +222,9 @@ transition: all 0.4s ease 0s;
     margin: 15px 40px 0px 40px;
     border: 1px solid #dfe0e2;
     padding: 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .col-style h1 {
@@ -274,4 +277,25 @@ li .right {
     margin-right: 20px;
     color: #bababa;
     margin-top: 9px;
+}
+
+h1.no-border {
+    border: none;
+}
+
+table.table {
+    margin-bottom: 0px;
+}
+
+table.table td {
+    color: #829090;
+    font-size: 10pt;
+}
+
+table.table tr {
+    color: #708080;
+}
+
+.form_container {
+    padding: 20px;
 }

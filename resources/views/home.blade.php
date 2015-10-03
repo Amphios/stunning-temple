@@ -33,6 +33,34 @@
             </ul>
     </div>
 
+    <div class="col-md-12 col-style">
+        <h1 class="no-border">LATEST CONVERSIONS</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Value</th>
+                <th>Result</th>
+                <th>Result Value</th>
+                <th>Date</th>
+            </tr>
+            @foreach($transactions as $transaction)
+                <tr>
+                    <td>{{ $transaction->id }}</td>
+                    <td>{{ $transaction->status }}</td>
+                    <td>{{ $transaction->username }}</td>
+                    <td>{{ $transaction->amount }}</td>
+                    <td>{{ $transaction->value }}</td>
+                    <td>{{ number_format($transaction->result, 2) }}</td>
+                    <td>{{ $transaction->result_value }}</td>
+                    <td>{{ $transaction->created_at }}</td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+
     @include ('errors.list')
 
 @stop
