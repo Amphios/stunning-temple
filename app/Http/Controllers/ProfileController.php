@@ -50,7 +50,7 @@ class ProfileController extends Controller
             $transaction->result_value = 'POUNDS';
             $transaction->save();
 
-			return Redirect::back()->with('convertSuccessMessage','You successfully converted ' . $gemsAmount . ' Gems to £' . $converted . '!');
+			return Redirect::back()->with('convertSuccessMessage','You successfully converted ' . $gemsAmount . ' Gems to £' . number_format($converted,) . '!');
 
 		} else {
 			print('not enough funds');
