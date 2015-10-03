@@ -17,7 +17,7 @@
                 <li>
                     <img class="user-list-img" src="{{ $user->avatar }}">
                     <a href="/u/{{ $user->username }}">
-                        {{ strtoupper($user->username) }} {{ strtoupper($user->surname) }}
+                        {{ strtoupper($user->username) }}
                     </a>
                     @if($user->admin === 0)
                         <span class="admin-level">Standard User</span>

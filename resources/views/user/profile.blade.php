@@ -6,7 +6,7 @@
         <div class="content_bar">
             <img class="content_bar avatar" src="{{ $user->avatar }}">
                 <div class="content_bar_stats">
-                    <div class="line-1"><strong>{{ strtoupper($user->username) }} {{ strtoupper($user->surname) }}</strong></div>
+                    <div class="line-1"><strong>{{ strtoupper($user->username) }}</strong></div>
                     <div class="line-2">
                         @if($user->admin === 0)
                             Standard User

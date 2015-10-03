@@ -15,7 +15,7 @@
         <div class="profile_box">
             @if(Auth::check())
                 <img class="avatar" src="{{ Auth::user()->avatar }}">
-                <a href="/u/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }} {{ strtoupper(Auth::user()->surname) }}</a>
+                <a href="/u/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
             @else
             <div id="profile_login"><a href="/auth/login">LOGIN</a></div>
             @endif
@@ -48,7 +48,7 @@
     <div id="page-content-wrapper">
         @yield('top_content')
         <div class="clearfix"></div>
-        <div class="page-content" style="margin-bottom: 50px;">
+        <div class="page-content" style="margin: 0px 0px 50px 0px;">
             <div class="container">
                 <div class="row">
                     @yield('content')
