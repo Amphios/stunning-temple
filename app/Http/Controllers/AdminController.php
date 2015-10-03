@@ -46,6 +46,6 @@ class AdminController extends Controller
         // Saves new values in database
         $user->save();
 
-        return Redirect::back()->with('addCurrencySuccessMessage','Query executed succcessfully');
+        return Redirect::back()->with('addCurrencySuccessMessage', 'Successfully added ' . $amount. ' ' . $currency . ' to '. $username)->with('flash_type', 'alert-danger');
     }
 }

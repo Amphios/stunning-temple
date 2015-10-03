@@ -34,6 +34,15 @@
     <div class="col-md-12 col-style">
         <h1>CONVERT</h1>
 
+            @if(Session::has('convertSuccessMessage'))
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ Session::get('convertSuccessMessage') }}
+                </div>
+            @endif
+
+            @include ('errors.list')
+
             <div class="form_container">
                 {!! Form::open(['url' => 'convertGems']) !!}
 
@@ -49,8 +58,6 @@
 
                 {!! Form::close() !!}
 
-                @include ('errors.list')
-                {{ Session::get('convertSuccessMessage') }}
             </div>
     </div>
 

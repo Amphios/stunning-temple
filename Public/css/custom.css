@@ -38,7 +38,7 @@ transition: all 0.4s ease 0s;
     top: 0;
     width: 250px;
     list-style: none;
-    margin: 20px 0 0 0;
+    margin: 110px 0px 0px 0px;
     padding: 0;
     background-color: #34495e;
 
@@ -81,7 +81,7 @@ transition: all 0.4s ease 0s;
 .profile_box {
     background-color: #2dcc70;
     width: 250px;
-    height: 90px;
+    height: 89px;
     padding: 5px 10px 5px 20px;
     position: absolute;
 }
@@ -90,6 +90,8 @@ transition: all 0.4s ease 0s;
     color: white;
     text-align: center;
     margin-left: 10px;
+    line-height: 80px;
+    vertical-align: 80px;
 }
 
 .profile_box a:hover {
@@ -115,7 +117,7 @@ transition: all 0.4s ease 0s;
 }
 
 .nav_content {
-    margin-left: 280px;
+    margin-left: 30px;
     height: 90px;
     vertical-align: 90px;
     line-height: 95px;
@@ -237,7 +239,6 @@ transition: all 0.4s ease 0s;
 }
 
 .col-style p {
-    color: #829090;
     padding: 15px 20px 15px 20px;
 }
 
@@ -303,4 +304,8 @@ table.table tr {
 
 .form_container {
     padding: 20px;
+}
+
+.alert {
+    margin: 20px 20px 0px 20px;
 }

@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <div class="nav_bar">
+    <div id="wrapper">
+    <div id="sidebar-wrapper">
         <div class="profile_box">
             @if(Auth::check())
                 <img class="avatar" src="{{ Auth::user()->avatar }}">
@@ -20,6 +21,14 @@
             @endif
         </div>
 
+        <ul class="sidebar-nav">
+            <li class="active"><a href="#">HOME</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+        </ul>
+    </div>
+
+    <div class="nav_bar">
         <div class="nav_content">
             <a href="/home/" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a>
             @if(Auth::check())
@@ -28,6 +37,7 @@
                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
 
                 <a href="/logout" class="logout_icon" data-toggle="tooltip" data-placement="left" title="Log out"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+
                 @if(Auth::user()->admin >= 1)
                     <a href="/auth/admin" data-toggle="tooltip" data-placement="bottom" title="Admin"><span style="color: #d43030;" class="glyphicon glyphicon-dashboard" aria-hidden="true"></span></a>
                 @endif
@@ -35,18 +45,10 @@
         </div>
     </div>
 
-    <div id="wrapper">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="active"><a href="#">HOME</a></li>
-            <li><a href="#">LINK</a></li>
-            <li><a href="#">LINK</a></li>
-        </ul>
-    </div>
     <div id="page-content-wrapper">
         @yield('top_content')
         <div class="clearfix"></div>
-        <div class="page-content">
+        <div class="page-content" style="margin-bottom: 50px;">
             <div class="container">
                 <div class="row">
                     @yield('content')
