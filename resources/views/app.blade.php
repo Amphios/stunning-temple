@@ -28,6 +28,9 @@
                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
 
                 <a href="/logout" class="logout_icon" data-toggle="tooltip" data-placement="left" title="Log out"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+                @if(Auth::user()->admin >= 1)
+                    <a href="/auth/admin" data-toggle="tooltip" data-placement="bottom" title="Admin"><span style="color: #d43030;" class="glyphicon glyphicon-dashboard" aria-hidden="true"></span></a>
+                @endif
             @endif
         </div>
     </div>

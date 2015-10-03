@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests;
 
-use App\Http\Requests\addGemsRequest;
-use App\Http\Requests\addMoneyRequest;
-use App\Http\Requests\addStarsRequest;
+use App\Http\Requests\addCurrencyRequest;
 
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -25,48 +23,29 @@ class AdminController extends Controller
         return view('auth.admin');
     }
 
-    public function addGems(addGemsRequest $request)
+    public function addCurrency(addCurrencyRequest $request)
     {
-        $username = $request->addGemsUsername;
-        $amount = $request->addGemsAmount;
+        $username = $request->username;
+        $currency = $request->currency;
+        $amount = $request->amount;
 
         $id = DB::table('users')->where('username', $username)->pluck('id');
         $user = User::find($id);
 
-        // Saves new values in database
-        $user->gems = $user->gems + $amount;
-        $user->save();
-
-        return Redirect::back()->with('addGemsSuccessMessage','You successfully added ' . number_format($amount, 2) . ' Gems to ' . $username . '!');
-    }
-
-    public function addMoney(addMoneyRequest $request)
-    {
-        $username = $request->addMoneyUsername;
-        $amount = $request->addMoneyAmount;
-
-        $id = DB::table('users')->where('username', $username)->pluck('id');
-        $user = User::find($id);
+        // Picks which currency was selected
+        if($currency === 'Gems') {
+            $user->gems = $user->gems + $amount;
+        } else if($currency === 'Money') {
+            $user->money = $user->money + $amount;
+        } else if($currency === 'Stars') {
+            $user->stars = $user->stars + $amount;
+        } else {
+            print('error');
+        }
 
         // Saves new values in database
-        $user->money = $user->money + $amount;
         $user->save();
 
-        return Redirect::back()->with('addMoneySuccessMessage','You successfully added £' . $amount . ' to ' . $username . '!');
-    }
-
-    public function addStars(addStarsRequest $request)
-    {
-        $username = $request->addStarsUsername;
-        $amount = $request->addStarsAmount;
-
-        $id = DB::table('users')->where('username', $username)->pluck('id');
-        $user = User::find($id);
-
-        // Saves new values in database
-        $user->stars = $user->stars + $amount;
-        $user->save();
-
-        return Redirect::back()->with('addStarsSuccessMessage','You successfully added ' . $amount . ' Stars to ' . $username . '!');
+        return Redirect::back()->with('addCurrencySuccessMessage','Query executed succcessfully');
     }
 }

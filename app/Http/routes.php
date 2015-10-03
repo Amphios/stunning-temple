@@ -13,9 +13,8 @@
 
 Route::get('auth/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index']);
 
-Route::post('addGems', ['middleware' => 'auth', 'uses' => 'AdminController@addGems']);
-Route::post('addMoney', ['middleware' => 'auth', 'uses' => 'AdminController@addMoney']);
-Route::post('addStars', ['middleware' => 'auth', 'uses' => 'AdminController@addStars']);
+Route::post('/currency/add', ['middleware' => 'auth', 'uses' => 'AdminController@addCurrency']);
+
 
 Route::post('convertGems', 'ProfileController@convertGems');
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class addStarsRequest extends Request
+class addCurrencyRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class addStarsRequest extends Request
     public function rules()
     {
         return [
-            'addStarsUsername' => 'required',
-            'addStarsAmount' => 'required|integer',
+            'username' => 'required',
+            'currency' => 'required',
+            'amount' => 'required'
         ];
     }
 }
