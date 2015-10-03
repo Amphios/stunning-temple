@@ -5,81 +5,56 @@
     <meta charset="UTF-8">
     <title>Pixel ~ Gem Managment</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    {!! Html::style('css/custom.css') !!}
 </head>
 
 <body>
+    <div class="nav_bar">
+        <div class="profile_box">
+            <img class="avatar" src="http://groundctrl.s3.amazonaws.com/clients/taylorswift/media/05/06/large.fxrcos84wxe7.jpg">
+            <a href="/u/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }} {{ strtoupper(Auth::user()->surname) }}</a>
+        </div>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Pixel</a>
-            </div>
+        <div class="nav_content">
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a>
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Piggy Bank"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span></a>
+        </div>
+    </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-
-                    @if (Auth::check())
-                     <li><a href="/u/{{ Auth::user()->username }}">Profile</a></li>
-                    @endif
-
-                    <!--<li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>-->
-                </ul>
-
-                <!--<form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+    <div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="active"><a href="#">HOME</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+        </ul>
+    </div>
+    <div id="page-content-wrapper">
+        @yield('top_content')
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        @yield('content')
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>-->
-
-                <ul class="nav navbar-nav navbar-right">
-                    @if (Auth::check())
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->username }} <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/auth/admin">Admin Dashboard</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="/logout">Logout</a></li>
-                            </ul>
-                        </li>
-                    @else
-                        <!--<li><a href="/auth/register">Register</a></li>-->
-                        <li><a href="/auth/login"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-                    @endif
-                </ul>
-
-
-
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="container">
-        @yield('content')
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     {!! Html::script('https://code.jquery.com/jquery-1.10.2.min.js') !!}
     {!! Html::script('//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js') !!}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 
 </html>

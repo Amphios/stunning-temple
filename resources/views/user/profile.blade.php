@@ -1,18 +1,28 @@
 @extends('app')
 
+@section('top_content')
+
+    <div id="top_content">
+        <div class="content_bar">
+            <img class="content_bar avatar" src="http://groundctrl.s3.amazonaws.com/clients/taylorswift/media/05/06/large.fxrcos84wxe7.jpg">
+                <div class="content_bar_stats">
+                    <div class="line-1"><strong>{{ strtoupper($user->username) }} {{ strtoupper($user->surname) }}</strong></div>
+                    <div class="line-2">Standard User</div>
+                    <div class="line-3">
+                        <span data-toggle="tooltip" data-placement="bottom" title="Pounds" class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ number_format($user->money, 2) }}
+                        <span style="margin: 0px 10px 0px 10px;">&middot;</span>
+                        <span data-toggle="tooltip" data-placement="bottom" title="Gems" class="glyphicon glyphicon-tint" aria-hidden="true"></span> {{ $user->gems }}
+                        <span style="margin: 0px 10px 0px 10px;">&middot;</span>
+                        <span data-toggle="tooltip" data-placement="bottom" title="Stars" class="glyphicon glyphicon-star" aria-hidden="true"></span> {{$user->stars }}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+@stop
+
 @section('content')
-
-    <h1>Profile</h1>
-
-    <p>
-	    {{ $user->username }}
-        &nbsp; | &nbsp;
-	    Gems: {{ $user->gems }}
-	    &nbsp; | &nbsp;
-	    £{{ number_format($user->money, 2) }}
-        &nbsp; | &nbsp;
-        Stars: {{$user->stars }}
-    </p>
 
     <p>
 		{!! Form::open(['url' => 'convertGems']) !!}
