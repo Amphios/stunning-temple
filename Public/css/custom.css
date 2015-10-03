@@ -3,6 +3,14 @@
 font-family: 'Lato', sans-serif;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 #wrapper {
 padding-left: 250px;
 transition: all 0.4s ease 0s;
@@ -111,7 +119,6 @@ transition: all 0.4s ease 0s;
     height: 90px;
     vertical-align: 90px;
     line-height: 95px;
-
 }
 
 .nav_content .glyphicon {
@@ -174,6 +181,19 @@ transition: all 0.4s ease 0s;
     clear: both;
 }
 
+#profile_login a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #17984d;
+    padding: 10px 20px 10px 20px;
+    margin: 0px 0px 0px 60px;
+}
+
+.logout_icon {
+    float: right;
+    margin-right: 30px;
+}
+
 @media (max-width:767px) {
 
     #wrapper {
@@ -195,4 +215,63 @@ transition: all 0.4s ease 0s;
         transition: all 0.4s ease 0s;
     }
 
+}
+
+.col-style {
+    background: #fff;
+    margin: 15px 40px 0px 40px;
+    border: 1px solid #dfe0e2;
+    padding: 0px;
+}
+
+.col-style h1 {
+    color: #708080;
+    font-size: 10pt;
+    margin: 0px;
+    padding: 15px 20px 15px 20px;
+    border-bottom: 1px solid #dfe0e2;
+    font-weight: bold;
+}
+
+.col-style p {
+    color: #829090;
+    padding: 15px 20px 15px 20px;
+}
+
+.col-style ul {
+    margin: 0px 0px 0px -20px;
+
+}
+
+.col-style li {
+    color: #829090;
+    list-style: none;
+    padding: 10px 0px 10px 0px;
+    font-size: 12px;
+}
+
+
+.col-style a {
+    color: #3598dc;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.user-list-img {
+    height: 35px;
+    width: 35px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.col-style .admin-level {
+    margin-left: 10px;
+}
+
+li .right {
+    margin-right: 20px;
+    color: #bababa;
+    margin-top: 9px;
 }

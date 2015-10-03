@@ -2,15 +2,36 @@
 
 @section('content')
 
-	<h1>Home</h1>
+    <div class="col-md-12 col-style">
+        <h1>HOMEPAGE</h1>
 
-	<ul>
-		@foreach ($users as $user)
-			<li><a href="/u/{{ $user->username }}">{{ $user->username }}</a></li>
-		@endforeach
-	</ul>
+        <p>
+            Nullam dictum viverra nunc, eget facilisis erat consequat fringilla. Nam varius quam eget erat tempus euismod. Vivamus interdum neque vel libero auctor varius. Suspendisse non dolor in neque ullamcorper pretium sit amet eget enim. Maecenas eget sagittis nulla, vel tincidunt nisi. Fusce gravida sem orci, nec feugiat nisl feugiat et. Nullam pulvinar arcu purus. Aenean ac urna eget dui commodo venenatis at eget diam. Suspendisse justo tellus, aliquam in ex eget, convallis pulvinar purus.
+        </p>
+    </div>
 
+    <div class="col-md-12 col-style">
+        <h1>USER LIST</h1>
+            <ul>
+                @foreach ($users as $user)
+                <li>
+                    <img class="user-list-img" src="{{ $user->avatar }}">
+                    <a href="/u/{{ $user->username }}">
+                        {{ strtoupper($user->username) }} {{ strtoupper($user->surname) }}
+                    </a>
+                    @if($user->admin === 0)
+                        <span class="admin-level">Standard User</span>
+                    @elseif($user->admin === 1)
+                        <span class="admin-level">Super User</span>
+                    @elseif($user->admin === 2)
+                        <span class="admin-level">Administrator</span>
+                    @endif
 
+                    <span class="right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ $user->updated_at }}</span>
+                </li>
+                @endforeach
+            </ul>
+    </div>
 
     @include ('errors.list')
 

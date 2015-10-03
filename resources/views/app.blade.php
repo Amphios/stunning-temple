@@ -13,16 +13,22 @@
     <div class="nav_bar">
         <div class="profile_box">
             @if(Auth::check())
-            <img class="avatar" src="http://groundctrl.s3.amazonaws.com/clients/taylorswift/media/05/06/large.fxrcos84wxe7.jpg">
-            <a href="/u/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }} {{ strtoupper(Auth::user()->surname) }}</a>
+                <img class="avatar" src="{{ Auth::user()->avatar }}">
+                <a href="/u/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }} {{ strtoupper(Auth::user()->surname) }}</a>
+            @else
+            <div id="profile_login"><a href="/auth/login">LOGIN</a></div>
             @endif
         </div>
 
         <div class="nav_content">
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a>
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Piggy Bank"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span></a>
+            <a href="/home/" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a>
+            @if(Auth::check())
+                <a href="/u/{{ Auth::user()->username }}" data-toggle="tooltip" data-placement="bottom" title="Profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Piggy Bank"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+
+                <a href="/logout" class="logout_icon" data-toggle="tooltip" data-placement="left" title="Log out"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+            @endif
         </div>
     </div>
 
@@ -32,19 +38,15 @@
             <li class="active"><a href="#">HOME</a></li>
             <li><a href="#">LINK</a></li>
             <li><a href="#">LINK</a></li>
-            @if(Auth::check())
-            <li><a href="/logout">Logout</a></li>
-            @endif
         </ul>
     </div>
     <div id="page-content-wrapper">
         @yield('top_content')
+        <div class="clearfix"></div>
         <div class="page-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        @yield('content')
-                    </div>
+                    @yield('content')
                 </div>
             </div>
         </div>

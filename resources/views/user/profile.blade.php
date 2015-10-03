@@ -4,7 +4,7 @@
 
     <div id="top_content">
         <div class="content_bar">
-            <img class="content_bar avatar" src="http://groundctrl.s3.amazonaws.com/clients/taylorswift/media/05/06/large.fxrcos84wxe7.jpg">
+            <img class="content_bar avatar" src="{{ $user->avatar }}">
                 <div class="content_bar_stats">
                     <div class="line-1"><strong>{{ strtoupper($user->username) }} {{ strtoupper($user->surname) }}</strong></div>
                     <div class="line-2">Standard User</div>
