@@ -2,8 +2,6 @@
 
 @section('content')
 
-<h1>Admin</h1>
-
 @if(Auth::user()->admin >= 1)
 
     <div class="col-md-12 col-style">
