@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Transactions;
 use App\User;
+
 use App\Http\Requests;
 use App\Http\Requests\convertFormRequest;
 use App\Http\Requests\Request;
@@ -14,8 +15,11 @@ class ProfileController extends Controller
     public function index($username)
     {
         $user = User::where('username', $username)->firstOrFail();
+        $id = $user->id;
 
-        return view('user.profile', compact('user', 'userCurrency'));
+        $transactions = Transactions::where('user_id', '=', $id)->orderBy('created_at', 'desc')->take(5)->get();
+
+        return view('user.profile', compact('user', '=', 'userCurrency', 'transactions'));
     }
 
     public function convertGems(convertFormRequest $request)
@@ -53,7 +57,7 @@ class ProfileController extends Controller
 			return Redirect::back()->with('convertSuccessMessage','You successfully converted ' . $gemsAmount . ' Gems to £' . number_format($converted, 2) . '!');
 
 		} else {
-			print('not enough funds');
+			return Redirect::back()->with('convertErrorMessage','You do not have the required funds to make that conversion.');
 		}
 
     }

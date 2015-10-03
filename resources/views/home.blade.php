@@ -37,7 +37,7 @@
         <h1 class="no-border">LATEST CONVERSIONS</h1>
         <table class="table table-striped">
             <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Type</th>
                 <th>User</th>
                 <th>Amount</th>

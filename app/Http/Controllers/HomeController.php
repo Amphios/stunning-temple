@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
 
 		$users = User::all();
-        $transactions = Transactions::all();
+        $transactions = Transactions::all()->sortByDesc('created_at')->take(20);
 
         return view('home', compact('users', 'transactions'));
     }

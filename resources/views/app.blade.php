@@ -27,7 +27,7 @@
             <li><a href="#">LINK</a></li>
         </ul>
     </div>
-
+    <div id="green-line"></div>
     <div class="nav_bar">
         <div class="nav_content">
             <a href="/home/" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a>
