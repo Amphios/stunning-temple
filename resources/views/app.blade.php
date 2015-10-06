@@ -15,7 +15,7 @@
         <div class="profile_box">
             @if(Auth::check())
                 <img class="avatar" src="{{ Auth::user()->avatar }}">
-                <a href="/u/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
+                <a href="/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
             @else
             <div id="profile_login"><a href="/auth/login">LOGIN</a></div>
             @endif
@@ -32,9 +32,9 @@
         <div class="nav_content">
             <a href="/home/" data-toggle="tooltip" data-placement="bottom" title="Home"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a>
             @if(Auth::check())
-                <a href="/u/{{ Auth::user()->username }}" data-toggle="tooltip" data-placement="bottom" title="Profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                <a href="{{ Auth::user()->username }}" data-toggle="tooltip" data-placement="bottom" title="Profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Piggy Bank"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                <a href="/auth/settings" data-toggle="tooltip" data-placement="bottom" title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
 
                 <a href="/logout" class="logout_icon" data-toggle="tooltip" data-placement="left" title="Log out"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
 

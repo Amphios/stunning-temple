@@ -34,31 +34,36 @@
     </div>
 
     <div class="col-md-12 col-style">
-        <h1 class="no-border">LATEST CONVERSIONS</h1>
-        <table class="table table-striped">
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>User</th>
-                <th>Amount</th>
-                <th>Value</th>
-                <th>Result</th>
-                <th>Result Value</th>
-                <th>Date</th>
-            </tr>
-            @foreach($transactions as $transaction)
-                <tr>
-                    <td>{{ $transaction->id }}</td>
-                    <td>{{ $transaction->status }}</td>
-                    <td>{{ $transaction->username }}</td>
-                    <td>{{ $transaction->amount }}</td>
-                    <td>{{ $transaction->value }}</td>
-                    <td>{{ number_format($transaction->result, 2) }}</td>
-                    <td>{{ $transaction->result_value }}</td>
-                    <td>{{ $transaction->created_at }}</td>
-                </tr>
-            @endforeach
-        </table>
+    	@if(count($transactions) >= 1)
+	        <h1 class="no-border">LATEST CONVERSIONS</h1>
+		        <table class="table table-striped">
+		            <tr>
+		                <th>ID</th>
+		                <th>Type</th>
+		                <th>User</th>
+		                <th>Amount</th>
+		                <th>Value</th>
+		                <th>Result</th>
+		                <th>Result Value</th>
+		                <th>Date</th>
+		            </tr>
+		            @foreach($transactions as $transaction)
+		                <tr>
+		                    <td>{{ $transaction->id }}</td>
+		                    <td>{{ $transaction->status }}</td>
+		                    <td>{{ $transaction->username }}</td>
+		                    <td>{{ $transaction->amount }}</td>
+		                    <td>{{ $transaction->value }}</td>
+		                    <td>{{ number_format($transaction->result, 2) }}</td>
+		                    <td>{{ $transaction->result_value }}</td>
+		                    <td>{{ $transaction->created_at }}</td>
+		                </tr>
+	            @endforeach
+	        </table>
+        @else
+        	<h1>LATEST CONVERSIONS</h1>
+			<div class="alert alert-warning" role="alert">No records to display</div>
+        @endif
     </div>
 
     @include ('errors.list')

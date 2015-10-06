@@ -5,13 +5,23 @@
     <h1>{{ $user->username }}, here are your account settings:</h1>
 
     <hr/>
+	{{ Session::get('updateSuccessMessage') }}
+    {!! Form::open(['url' => '/update/settings']) !!}
 
-    {!! Form::model($settings, ['method' => 'PATCH', 'action' => ['SettingsController@update', Auth::user()->id]])!!}
-
-    @include ('settings.form', ['submitButtonText' => 'Update Settings'])
+    	@include ('settings.form_account', ['submitButtonText' => 'Update Settings'])
 
     {!! Form::close() !!}
 
     @include ('errors.list')
 
+    {{ Session::get('updatePasswordMessage') }}
+    {!! Form::open(['url' => '/update/password']) !!}
+
+    	@include ('settings.form_password', ['submitButtonText' => 'Update Password'])
+
+    {!! Form::close() !!}
+
 @stop
+
+
+

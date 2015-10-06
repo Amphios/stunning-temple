@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class SettingsRequest extends Request
+class UpdatePasswordRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class SettingsRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required|min:6',
-            'email' => 'required|email'
+            'currentPassword' => 'required',
+            'newPassword' => 'required|min:6',
+            'newPasswordAgain' => 'required|same:newPassword|min:6'
         ];
     }
 }

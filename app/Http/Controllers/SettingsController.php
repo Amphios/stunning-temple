@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SettingsRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\User;
+use Redirect;
+use Hash;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,21 +19,40 @@ class SettingsController extends Controller
         return view('auth.settings', compact('user'));
     }
 
-    public function edit($id)
+    public function updateSettings(SettingsRequest $request)
     {
-        $user = Auth::user();
-        $settings = User::findOrFail($user->id);
+        $username = $request->username;
+        $email = $request->email;
 
-        return view('auth.settings', compact('settings', 'user'));
+        $user = Auth::user();
+
+        if($username === $user->username && $email === $user->email) {
+            return Redirect::back()->with('updateSuccessMessage', 'nothing to update');
+        } else {
+            $user->username = $username;
+            $user->email = $email;
+            $user->save();
+
+            return Redirect::back()->with('updateSuccessMessage','success');
+        }        
     }
 
-    public function update($id, SettingsRequest $request)
+    public function updatePassword(UpdatePasswordRequest $request)
     {
+            $currentPassword = $request->currentPassword;
 
-        $settings = User::findOrFail($id);
+            $newPassword = Hash::make($request->newPassword);
+            $newPasswordAgain = Hash::make($request->newPasswordAgain);
 
-        $settings->update($request->all());
+            $user = Auth::user();
 
-        return redirect('home');
+            if (Hash::check($currentPassword, $user->password)) {
+                    $user->password = $newPassword;
+                    $user->save();
+
+                    return Redirect::back()->with('updatePasswordMessage', 'password updated');
+            } else {
+                return Redirect::back()->with('updatePasswordMessage', 'incorrect password');
+            }
     }
 }

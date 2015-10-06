@@ -11,6 +11,11 @@
 |
 */
 
+Route::post('/update/settings', ['middleware' => 'auth', 'uses' => 'SettingsController@updateSettings']);
+Route::post('/update/password', ['middleware' => 'auth', 'uses' => 'SettingsController@updatePassword']);
+
+Route::get('auth/settings', ['middleware' => 'auth', 'uses' => 'SettingsController@index']);
+
 Route::get('auth/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index']);
 
 Route::post('/currency/add', ['middleware' => 'auth', 'uses' => 'AdminController@addCurrency']);
@@ -29,7 +34,7 @@ Route::get('logout', function(){
     return redirect('home');
 });
 
-Route::get('u/{username}', 'ProfileController@index');
+Route::get('{username}', 'ProfileController@index');
 
 //Route::get('about', 'PagesController@about');
 //Route::get('contact', 'PagesController@contact');

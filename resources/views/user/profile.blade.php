@@ -31,76 +31,78 @@
 @stop
 
 @section('content')
-    @if(Auth::user()->username === $user->username)
-        <div class="col-md-12 col-style">
-            <h1>CONVERT</h1>
+	@if(Auth::check())
+	    @if(Auth::user()->username === $user->username)
+	        <div class="col-md-12 col-style">
+	            <h1>CONVERT</h1>
 
-                @if(Session::has('convertSuccessMessage'))
-                    <div class="alert alert-success" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        {{ Session::get('convertSuccessMessage') }}
-                    </div>
-                @endif
+	                @if(Session::has('convertSuccessMessage'))
+	                    <div class="alert alert-success" role="alert">
+	                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                        {{ Session::get('convertSuccessMessage') }}
+	                    </div>
+	                @endif
 
-                @if(Session::has('convertErrorMessage'))
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        {{ Session::get('convertErrorMessage') }}
-                    </div>
-                @endif
+	                @if(Session::has('convertErrorMessage'))
+	                    <div class="alert alert-danger" role="alert">
+	                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                        {{ Session::get('convertErrorMessage') }}
+	                    </div>
+	                @endif
 
-                @include ('errors.list')
+	                @include ('errors.list')
 
-                <div class="form_container">
-                    {!! Form::open(['url' => 'convertGems']) !!}
+	                <div class="form_container">
+	                    {!! Form::open(['url' => 'convertGems']) !!}
 
-                        <div class="form-group">
-                            {!! Form::label('gemsAmount', 'Amount of Gems to convert:') !!}
-                            {!! Form::text('gemsAmount', null, ['class' => 'form-control']) !!}
-                            <input type="hidden" value="{{ $user->id }}" name="id" id="id">
-                        </div>
+	                        <div class="form-group">
+	                            {!! Form::label('gemsAmount', 'Amount of Gems to convert:') !!}
+	                            {!! Form::text('gemsAmount', null, ['class' => 'form-control']) !!}
+	                            <input type="hidden" value="{{ $user->id }}" name="id" id="id">
+	                        </div>
 
-                        <div class="form-group">
-                            {!! Form::submit('Convert', ['class' => 'btn btn-primary form-control']) !!}
-                        </div>
+	                        <div class="form-group">
+	                            {!! Form::submit('Convert', ['class' => 'btn btn-primary form-control']) !!}
+	                        </div>
 
-                    {!! Form::close() !!}
+	                    {!! Form::close() !!}
 
-                </div>
-        </div>
-    @endif
-
+	                </div>
+	        </div>
+	    @endif
+	@endif
 
     <div class="col-md-12 col-style">
-        <h1 class="no-border">LATEST CONVERSIONS</h1>
-            @if(count($transactions) >= 1)
-            <table class="table table-striped">
-                <tr>
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>User</th>
-                    <th>Amount</th>
-                    <th>Value</th>
-                    <th>Result</th>
-                    <th>Result Value</th>
-                    <th>Date</th>
-                </tr>
-                @foreach($transactions as $transaction)
-                    <tr>
-                        <td>{{ $transaction->id }}</td>
-                        <td>{{ $transaction->status }}</td>
-                        <td>{{ $transaction->username }}</td>
-                        <td>{{ $transaction->amount }}</td>
-                        <td>{{ $transaction->value }}</td>
-                        <td>{{ number_format($transaction->result, 2) }}</td>
-                        <td>{{ $transaction->result_value }}</td>
-                        <td>{{ $transaction->created_at }}</td>
-                    </tr>
-                @endforeach
-            </table>
-            @else
-                <div class="alert alert-warning" role="alert">No records to display</div>
-            @endif
+        @if(count($transactions) >= 1)
+            <h1 class="no-border">LATEST CONVERSIONS</h1>
+	            <table class="table table-striped">
+	                <tr>
+	                    <th>ID</th>
+	                    <th>Type</th>
+	                    <th>User</th>
+	                    <th>Amount</th>
+	                    <th>Value</th>
+	                    <th>Result</th>
+	                    <th>Result Value</th>
+	                    <th>Date</th>
+	                </tr>
+	                @foreach($transactions as $transaction)
+	                    <tr>
+	                        <td>{{ $transaction->id }}</td>
+	                        <td>{{ $transaction->status }}</td>
+	                        <td>{{ $transaction->username }}</td>
+	                        <td>{{ $transaction->amount }}</td>
+	                        <td>{{ $transaction->value }}</td>
+	                        <td>{{ number_format($transaction->result, 2) }}</td>
+	                        <td>{{ $transaction->result_value }}</td>
+	                        <td>{{ $transaction->created_at }}</td>
+	                    </tr>
+	                @endforeach
+	            </table>
+        @else
+        	<h1>LATEST CONVERSIONS</h1>
+            <div class="alert alert-warning" role="alert">No records to display</div>
+        @endif
     </div>
 
 @stop
