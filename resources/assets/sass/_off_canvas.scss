@@ -1,7 +1,12 @@
 // Colours
+
 $background: #ecf0f1;
 $nav-background: #34495e;
 $main-green: #2dcc70;
+
+$light-grey: #e5e5e5;
+$medium-grey: #8e9a98;
+$dark-grey: #373e3d;
 
 
 
@@ -19,6 +24,16 @@ $main-green: #2dcc70;
   width: 100%;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+// Side-bar SCSS
+
 .sidebar {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -34,7 +49,73 @@ $main-green: #2dcc70;
 .profile-box {
   background: $main-green;
   height: 89px;
-  padding: 5px 10px 5px 20px;
+  vertical-align: 89px;
+  line-height: 89px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.login {
+  background: black;
+  color: #fff;
+  background-color: #17984d;
+  padding: 10px 20px 10px 20px;
+}
+
+.login:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul.nav-links {
+  margin: 0;
+}
+
+.nav-links {
+
+  li {
+    list-style: none;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    margin-bottom: 20px;
+    height: 50px;
+    line-height: 45px;
+    vertical-align: middle;
+  }
+
+  li a {
+    color: #fff;
+  }
+
+  li.active {
+    background-color: #233342;
+  }
+}
+
+
+// Nav-bar Scss
+
+.nav-bar {
+  background: #fff;
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid $light-grey;
+  padding: 0px 30px 0px 30px;
+
+  .nav-icons {
+    color: red;
+    padding-top: 25px;
+  }
+
+  .nav-icons i {
+    margin: 0px 10px 0px 10px;
+    color: $medium-grey;
+  }
+
+  .nav-icons i:hover {
+    color: $dark-grey;
+  }
 }
 
 
@@ -50,5 +131,4 @@ $main-green: #2dcc70;
   .sidebar {
     display: none; 
   }
-
 }

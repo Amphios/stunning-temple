@@ -352,36 +352,6 @@ td,
 th {
   padding: 0; }
 
-.container {
-  background: #ecf0f1;
-  box-sizing: border-box;
-  height: 100%;
-  overflow-x: hidden;
-  padding-left: 280px;
-  width: 100%; }
-
-.sidebar {
-  box-sizing: border-box;
-  min-height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 280px;
-  background: #34495e; }
-
-.profile-box {
-  background: #2dcc70;
-  height: 89px;
-  padding: 5px 10px 5px 20px; }
-
-@media only screen and (max-width: 640px) {
-  body {
-    -webkit-text-size-adjust: none; }
-  .container {
-    padding-left: 0; }
-  .sidebar {
-    display: none; } }
-
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
@@ -6849,5 +6819,88 @@ th.hide-for-touch {
     display: table-cell !important; }
   th.show-for-print {
     display: table-cell !important; } }
+
+.container {
+  background: #ecf0f1;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
+  padding-left: 280px;
+  width: 100%; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.sidebar {
+  box-sizing: border-box;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px;
+  background: #34495e; }
+
+.profile-box {
+  background: #2dcc70;
+  height: 89px;
+  vertical-align: 89px;
+  line-height: 89px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px; }
+
+.login {
+  background: black;
+  color: #fff;
+  background-color: #17984d;
+  padding: 10px 20px 10px 20px; }
+
+.login:hover {
+  color: #fff;
+  text-decoration: none; }
+
+ul.nav-links {
+  margin: 0; }
+
+.nav-links li {
+  list-style: none;
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: 20px;
+  height: 50px;
+  line-height: 45px;
+  vertical-align: middle; }
+
+.nav-links li a {
+  color: #fff; }
+
+.nav-links li.active {
+  background-color: #233342; }
+
+.nav-bar {
+  background: #fff;
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0px 30px 0px 30px; }
+  .nav-bar .nav-icons {
+    color: red;
+    padding-top: 25px; }
+  .nav-bar .nav-icons i {
+    margin: 0px 10px 0px 10px;
+    color: #8e9a98; }
+  .nav-bar .nav-icons i:hover {
+    color: #373e3d; }
+
+@media only screen and (max-width: 640px) {
+  body {
+    -webkit-text-size-adjust: none; }
+  .container {
+    padding-left: 0; }
+  .sidebar {
+    display: none; } }
 
 /*# sourceMappingURL=app.css.map */

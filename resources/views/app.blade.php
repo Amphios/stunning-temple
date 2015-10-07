@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Pixel ~ Gem Managment</title>
-        {!! Html::style('/css/app.css') !!}
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      {!! Html::style('/css/app.css') !!}
 </head>
 
 <body>
@@ -16,22 +18,38 @@
               <img class="avatar" src="{{ Auth::user()->avatar }}">
               <a href="/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
           @else
-          <a href="/auth/login">LOGIN</a>
+            <a class="login" href="/auth/login">Login</a>
+            |
+            <a class="login" href="/auth/register">Sign up</a>
           @endif
       </div>
 
-      <ul>
-          <li><a href="#">HOME</a></li>
+      <ul class="nav-links">
+          <li class="active"><a href="#">HOME</a></li>
           <li><a href="#">LINK</a></li>
           <li><a href="#">LINK</a></li>
       </ul>
   </div>
 
   <div class="container">
+    <div class="nav-bar">
+      <div class="nav-icons">
+        <i class="fa fa-home fa-2x left"></i>
+        <i class="fa fa-user fa-2x left"></i>
+        <i class="fa fa-gift fa-2x left"></i>
+        <i class="fa fa-trophy fa-2x left"></i>
+        <i class="fa fa-question fa-2x left"></i>
+
+        <i class="fa fa-sign-out fa-2x right"></i>
+        <i class="fa fa-cog fa-2x right"></i>
+        
+      </div>
+    </div>
+
     <div class="row">
       <div class="small-12 columns">
       <!-- Foundation Grid -->
-      test
+        @yield('content')
       </div>
     </div>
   </div>

@@ -1,7 +1,6 @@
 @import "normalize";
 
 @import "settings";
-@import "off_canvas";
 
 // Include all foundation
 @import "foundation";
@@ -43,3 +42,5 @@
 //   "foundation/components/type",
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
+
+@import "off_canvas";
