@@ -1,0 +1,54 @@
+// Colours
+$background: #ecf0f1;
+$nav-background: #34495e;
+$main-green: #2dcc70;
+
+
+
+
+// Scss Content
+
+.container {
+  background: $background;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
+  padding-left: 280px;
+  width: 100%;
+}
+
+.sidebar {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px;
+  background: $nav-background;
+}
+
+.profile-box {
+  background: $main-green;
+  height: 89px;
+  padding: 5px 10px 5px 20px;
+}
+
+
+  
+// Media queries
+
+@media only screen and (max-width: 640px) {
+
+  body { -webkit-text-size-adjust: none; }
+
+  .container { padding-left: 0; }
+
+  .sidebar {
+    display: none; 
+  }
+
+}

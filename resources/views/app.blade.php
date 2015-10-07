@@ -4,12 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Pixel ~ Gem Managment</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    {!! Html::style('css/custom.css') !!}
+        {!! Html::style('/css/app.css') !!}
 </head>
 
 <body>
+
+  <div class="sidebar">
+    <!-- Fixed width sidebar -->
+      <div class="profile-box">
+          @if(Auth::check())
+              <img class="avatar" src="{{ Auth::user()->avatar }}">
+              <a href="/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
+          @else
+          <a href="/auth/login">LOGIN</a>
+          @endif
+      </div>
+
+      <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">LINK</a></li>
+          <li><a href="#">LINK</a></li>
+      </ul>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="small-12 columns">
+      <!-- Foundation Grid -->
+      test
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!--<body>
     <div id="wrapper">
     <div id="sidebar-wrapper">
         <div class="profile_box">
@@ -66,6 +95,6 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-</body>
+</body>-->
 
 </html>
