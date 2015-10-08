@@ -6820,6 +6820,9 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important; } }
 
+html, body {
+  font-family: 'Roboto', sans-serif; }
+
 .container {
   background: #ecf0f1;
   box-sizing: border-box;
@@ -6853,13 +6856,13 @@ th.hide-for-touch {
   margin-bottom: 20px; }
 
 .login {
-  background: black;
   color: #fff;
   background-color: #17984d;
   padding: 10px 20px 10px 20px; }
 
 .login:hover {
-  color: #fff;
+  background: #fff;
+  color: #17984d;
   text-decoration: none; }
 
 ul.nav-links {
@@ -6885,15 +6888,85 @@ ul.nav-links {
   width: 100%;
   height: 90px;
   border-bottom: 1px solid #e5e5e5;
-  padding: 0px 30px 0px 30px; }
+  padding: 0px 40px 0px 30px; }
   .nav-bar .nav-icons {
     color: red;
     padding-top: 25px; }
   .nav-bar .nav-icons i {
     margin: 0px 10px 0px 10px;
     color: #8e9a98; }
+    .nav-bar .nav-icons i .nav-link {
+      font-size: 9pt;
+      font-weight: bold;
+      vertical-align: middle;
+      padding-left: 5px; }
   .nav-bar .nav-icons i:hover {
-    color: #373e3d; }
+    color: #2dcc70; }
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px; }
+
+.user-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 2rem 1.0625rem 2rem;
+  font-size: 1rem;
+  background-color: #008CBA;
+  border-color: #007095;
+  color: #FFFFFF;
+  transition: background-color 300ms ease-out;
+  background: #2dcc70;
+  padding: 10px 20px 10px 0px;
+  margin: 0px;
+  font-size: 10pt; }
+  .user-button:hover,
+  .user-button:focus {
+    background-color: #007095; }
+  .user-button:hover,
+  .user-button:focus {
+    color: #FFFFFF; }
+  .user-button i.icon {
+    color: #fff;
+    padding-left: 10px; }
+  .user-button i.icon:hover {
+    color: #fff; }
+
+.user-button:hover {
+  background: #17984d; }
+
+.row {
+  padding: 10px 20px 10px 20px; }
+  .row .content-box {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px; }
+    .row .content-box p {
+      padding: 20px;
+      margin: 0px; }
+  .row .large-12 {
+    padding: 0px; }
+
+h3 {
+  color: #708080;
+  font-size: 10pt;
+  margin: 0px;
+  padding: 15px 20px 15px 20px;
+  border-bottom: 1px solid #dfe0e2;
+  font-weight: bold; }
 
 @media only screen and (max-width: 640px) {
   body {

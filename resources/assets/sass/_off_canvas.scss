@@ -2,7 +2,9 @@
 
 $background: #ecf0f1;
 $nav-background: #34495e;
+
 $main-green: #2dcc70;
+$dark-green: #17984d;
 
 $light-grey: #e5e5e5;
 $medium-grey: #8e9a98;
@@ -12,6 +14,10 @@ $dark-grey: #373e3d;
 
 
 // Scss Content
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
 
 .container {
   background: $background;
@@ -57,14 +63,14 @@ $dark-grey: #373e3d;
 }
 
 .login {
-  background: black;
   color: #fff;
-  background-color: #17984d;
+  background-color: $dark-green;
   padding: 10px 20px 10px 20px;
 }
 
 .login:hover {
-  color: #fff;
+  background: #fff;
+  color: $dark-green;
   text-decoration: none;
 }
 
@@ -101,7 +107,7 @@ ul.nav-links {
   width: 100%;
   height: 90px;
   border-bottom: 1px solid $light-grey;
-  padding: 0px 30px 0px 30px;
+  padding: 0px 40px 0px 30px;
 
   .nav-icons {
     color: red;
@@ -111,15 +117,99 @@ ul.nav-links {
   .nav-icons i {
     margin: 0px 10px 0px 10px;
     color: $medium-grey;
+
+    .nav-link {
+      font-size: 9pt;
+      font-weight: bold;
+      vertical-align: middle;
+      padding-left: 5px;
+    }
   }
 
   .nav-icons i:hover {
-    color: $dark-grey;
+    color: $main-green;
   }
 }
 
 
-  
+
+// Avatars
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+// Buttons
+
+.user-button {
+  @include button();
+
+  background: $main-green;
+  padding: 10px 20px 10px 0px;
+  margin: 0px;
+  font-size: 10pt;
+
+  i.icon {
+    color: #fff;
+    padding-left: 10px;
+  }
+
+  i.icon:hover {
+    color: #fff;
+  }
+
+}
+
+.user-button:hover {
+  background: $dark-green;
+}
+
+
+
+
+// Boxes
+
+.row {
+  padding: 10px 20px 10px 20px;
+
+  .content-box {
+    background: #fff;
+    border: 1px solid $light-grey;
+    border-radius: 5px;
+
+    p {
+      padding: 20px;
+      margin: 0px;
+    }
+  }
+
+  .large-12 {
+    padding: 0px;
+  }
+}
+
+
+
+
+// Typography
+
+h3 {
+    color: #708080;
+    font-size: 10pt;
+    margin: 0px;
+    padding: 15px 20px 15px 20px;
+    border-bottom: 1px solid #dfe0e2;
+    font-weight: bold;
+}
+
+
+
+
+
 // Media queries
 
 @media only screen and (max-width: 640px) {

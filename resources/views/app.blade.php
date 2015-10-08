@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <title>Pixel ~ Gem Managment</title>
 
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       {!! Html::style('/css/app.css') !!}
+
 </head>
 
 <body>
@@ -18,14 +20,13 @@
               <img class="avatar" src="{{ Auth::user()->avatar }}">
               <a href="/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
           @else
-            <a class="login" href="/auth/login">Login</a>
-            |
-            <a class="login" href="/auth/register">Sign up</a>
+            <a class="login" href="/auth/login">Sign in</a>
+            <!--<a class="login" href="/auth/register">Sign up</a>-->
           @endif
       </div>
 
       <ul class="nav-links">
-          <li class="active"><a href="#">HOME</a></li>
+          <a href="#"><li class="active">Home</li></a>
           <li><a href="#">LINK</a></li>
           <li><a href="#">LINK</a></li>
       </ul>
@@ -34,14 +35,19 @@
   <div class="container">
     <div class="nav-bar">
       <div class="nav-icons">
-        <i class="fa fa-home fa-2x left"></i>
-        <i class="fa fa-user fa-2x left"></i>
-        <i class="fa fa-gift fa-2x left"></i>
-        <i class="fa fa-trophy fa-2x left"></i>
-        <i class="fa fa-question fa-2x left"></i>
-
-        <i class="fa fa-sign-out fa-2x right"></i>
-        <i class="fa fa-cog fa-2x right"></i>
+        <a href="#"><i class="fa fa-home fa-2x left"></i></a>
+        <a href="#"><i class="fa fa-user fa-2x left"></i></a>
+        <a href="#"><i class="fa fa-gift fa-2x left"></i></a>
+        <a href="#"><i class="fa fa-trophy fa-2x left"></i></a>
+        <a href="#"><i class="fa fa-question fa-2x left"></i></a>
+        
+        @if(Auth::check())
+            <a href="#" class="button user-button right"><i class="fa fa-cog icon"></i>
+              {{ strtoupper(Auth::user()->username) }}
+            </a>
+        @else
+          hi
+        @endif
         
       </div>
     </div>
@@ -53,6 +59,16 @@
       </div>
     </div>
   </div>
+
+
+  {!! Html::script('js/vendor/modernizr.js') !!}
+  {!! Html::script('js/vendor/jquery.js') !!}
+  {!! Html::script('js/vendor/fastclick.js') !!}
+  {!! Html::script('js/foundation.js') !!}
+
+  <script>
+    $(document).foundation();
+  </script>
 
 </body>
 
