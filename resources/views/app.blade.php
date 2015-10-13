@@ -16,13 +16,7 @@
   <div class="sidebar">
     <!-- Fixed width sidebar -->
       <div class="profile-box">
-          @if(Auth::check())
-              <img class="avatar" src="{{ Auth::user()->avatar }}">
-              <a href="/{{ Auth::user()->username }}">{{ strtoupper(Auth::user()->username) }}</a>
-          @else
-            <a class="login" href="/auth/login">Sign in</a>
-            <!--<a class="login" href="/auth/register">Sign up</a>-->
-          @endif
+          logo
       </div>
 
       <ul class="nav-links">
@@ -46,7 +40,9 @@
               {{ strtoupper(Auth::user()->username) }}
             </a>
         @else
-          hi
+          <a href="/auth/login" class="button user-button right"><i class="fa fa-cog icon"></i>
+              Sign in
+            </a>
         @endif
         
       </div>

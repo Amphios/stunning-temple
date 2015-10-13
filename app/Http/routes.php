@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('/create/account/child', ['middleware' => 'auth', 'uses' => 'ChildController@create']);
+
 Route::post('/update/settings', ['middleware' => 'auth', 'uses' => 'SettingsController@updateSettings']);
 Route::post('/update/password', ['middleware' => 'auth', 'uses' => 'SettingsController@updatePassword']);
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use DB;
+use Redirect;
 use Hash;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -57,10 +59,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $rand = str_random(15);
+
+        $user_group = $rand;
+
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'user_group' => $rand,
         ]);
     }
 }
