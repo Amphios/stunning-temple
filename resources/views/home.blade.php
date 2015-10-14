@@ -66,7 +66,7 @@
 	    <div class="row">
 	        <div class="large-12 columns content-box">
 	        	@if(count($transactions) >= 1)
-	    	        <h1 class="no-border">LATEST CONVERSIONS</h1>
+	    	        <h3>LATEST CONVERSIONS</h3>
 	    		        <table class="table table-striped">
 	    		            <tr>
 	    		                <th>ID</th>
@@ -92,8 +92,8 @@
 	    	            @endforeach
 	    	        </table>
 	            @else
-	            	<h1>LATEST CONVERSIONS</h1>
-	    			<div class="alert alert-warning" role="alert">No records to display</div>
+	            	<h3>LATEST CONVERSIONS</h3>
+	    			<div class="alert-box">No records to display</div>
 	            @endif
 	        </div>
 	    </div>

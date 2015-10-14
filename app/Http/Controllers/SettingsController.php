@@ -62,15 +62,6 @@ class SettingsController extends Controller
 
     public function uploadAvatar(UploadAvatarRequest $request)
     {
-        /*$imageName = 'test' . 
-        $request->file('image')->getClientOriginalExtension();
-
-        $request->file('image')->move(
-            base_path() . '/public/uploads/avatars/', $imageName
-        );
-
-        print('success');*/
-
         if (Input::hasFile('image'))
         {
             $file = Input::file('image');

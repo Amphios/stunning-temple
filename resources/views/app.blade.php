@@ -16,11 +16,11 @@
   <div class="sidebar">
     <!-- Fixed width sidebar -->
       <div class="profile-box">
-          logo
+          <a href="/home">logo</a>
       </div>
 
       <ul class="nav-links">
-          <a href="#"><li class="active">Home</li></a>
+          <a href="/home"><li class="active">Home</li></a>
           <li><a href="#">LINK</a></li>
           <li><a href="#">LINK</a></li>
       </ul>
@@ -29,14 +29,18 @@
   <div class="container">
     <div class="nav-bar">
       <div class="nav-icons">
-        <a href="#"><i class="fa fa-home fa-2x left"></i></a>
-        <a href="#"><i class="fa fa-user fa-2x left"></i></a>
-        <a href="#"><i class="fa fa-gift fa-2x left"></i></a>
-        <a href="#"><i class="fa fa-trophy fa-2x left"></i></a>
-        <a href="#"><i class="fa fa-question fa-2x left"></i></a>
+        <a href="/home"><i class="fa fa-home fa-2x left"></i></a>
+
+        @if(Auth::check())
+          <a href="{{ Auth::user()->username }}"><i class="fa fa-user fa-2x left"></i></a>
+        @endif
+
+        <a href="/shop"><i class="fa fa-gift fa-2x left"></i></a>
+        <a href="/trophies"><i class="fa fa-trophy fa-2x left"></i></a>
+        <a href="/help"><i class="fa fa-question fa-2x left"></i></a>
         
         @if(Auth::check())
-            <a href="#" class="button user-button right"><i class="fa fa-cog icon"></i>
+            <a href="/auth/settings" class="button user-button right"><i class="fa fa-cog icon"></i>
               {{ strtoupper(Auth::user()->username) }}
             </a>
         @else
