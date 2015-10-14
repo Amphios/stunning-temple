@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SettingsRequest;
 use App\Http\Requests\UpdatePasswordRequest;
+use App\Http\Requests\UploadAvatarRequest;
+
 use App\User;
 use Redirect;
 use Hash;
+use Input;
+
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,5 +58,34 @@ class SettingsController extends Controller
             } else {
                 return Redirect::back()->with('updatePasswordMessage', 'incorrect password');
             }
+    }
+
+    public function uploadAvatar(UploadAvatarRequest $request)
+    {
+        /*$imageName = 'test' . 
+        $request->file('image')->getClientOriginalExtension();
+
+        $request->file('image')->move(
+            base_path() . '/public/uploads/avatars/', $imageName
+        );
+
+        print('success');*/
+
+        if (Input::hasFile('image'))
+        {
+            $file = Input::file('image');
+            $destinationPath =  base_path() . '/public/uploads/avatars/';
+            $extension = $file->getClientOriginalExtension();
+            $filename = str_random(20).".{$extension}";
+            $upload_success = $file->move($destinationPath, $filename);
+
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+
+            return Redirect::back()->with('uploadAvatarMessage', 'success');
+        } else {
+            print('failed');
+        }
     }
 }

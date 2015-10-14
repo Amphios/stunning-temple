@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('/upload/avatar', ['middleware' => 'auth', 'uses' => 'SettingsController@uploadAvatar']);
+
 Route::post('/create/account/child', ['middleware' => 'auth', 'uses' => 'ChildController@create']);
 
 Route::post('/update/settings', ['middleware' => 'auth', 'uses' => 'SettingsController@updateSettings']);

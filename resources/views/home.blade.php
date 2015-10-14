@@ -44,7 +44,7 @@
 	            <ul>
 	                @foreach ($users as $user)
 	                <li>
-	                    <img class="avatar" src="{{ $user->avatar }}">
+	                    <img class="avatar" src="/uploads/avatars/{{ $user->avatar }}">
 	                    <a href="/u/{{ $user->username }}">
 	                        {{ strtoupper($user->username) }}
 	                    </a>

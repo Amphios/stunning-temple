@@ -21,6 +21,13 @@
 
     {!! Form::close() !!}
 
+    {{ Session::get('uploadAvatarMessage') }}
+    {!! Form::open(['url' => '/upload/avatar', 'files' => true]) !!}
+
+        @include ('settings.form_avatar', ['submitButtonText' => 'Upload'])
+
+    {!! Form::close() !!}
+
 @stop
 
 

@@ -17,8 +17,10 @@ class HomeController extends Controller
 {
     public function index()
     {
+    	if (Auth::check()){
+    		$children = Child::where('user_group', '=', Auth::user()->user_group)->get();
+    	}
 
-    	$children = Child::where('user_group', '=', Auth::user()->user_group)->get();
 		$users = User::all();
         $transactions = Transactions::all()->sortByDesc('created_at')->take(20);
 
